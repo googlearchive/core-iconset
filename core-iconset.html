@@ -71,7 +71,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 Polymer({
   is: 'core-iconset',
 
-  published: {
+  properties: {
     /**
      * The URL of the iconset image.
      *
@@ -157,9 +157,8 @@ Polymer({
     iconMap: 'computeIconMap(icons)'
   },
 
-  bind: {
-    offsetx: 'recomputeIconMap',
-    offsety: 'recomputeIconMap'
+  observers: {
+    'offsetx offsety': 'recomputeIconMap'
   },
 
   configure: function () {
